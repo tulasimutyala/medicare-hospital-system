@@ -14,7 +14,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/prescriptions")
-@CrossOrigin(origins = "http://localhost:5173")
 public class PrescriptionController {
 
     private final PrescriptionRepository repository;

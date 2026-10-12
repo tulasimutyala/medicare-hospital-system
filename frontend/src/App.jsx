@@ -12,7 +12,9 @@ import { useEffect, useMemo, useRef, useState } from 'react'
    ===================================================================== */
 
 const USE_BACKEND = true
-const API_BASE = 'http://localhost:8080/api'
+const RAW_API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080/api'
+const CLEAN_BASE = RAW_API_BASE.trim().replace(/\/+$/, '')
+const API_BASE = CLEAN_BASE.endsWith('/api') ? CLEAN_BASE : `${CLEAN_BASE}/api`
 
 async function apiRequest(path, options = {}) {
   const token = sessionStorage.getItem('medicare_token')
@@ -1029,7 +1031,7 @@ function AuthModal({ initialMode, onClose, notify, role = 'PATIENT', onLoginSucc
 
     try {
       const response = await fetch(
-        `http://localhost:8080/api/auth/${isReg ? 'register' : 'login'}`,
+        `${API_BASE}/auth/${isReg ? 'register' : 'login'}`,
         {
           method: 'POST',
           headers: {
