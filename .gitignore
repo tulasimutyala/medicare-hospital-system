@@ -1,0 +1,36 @@
+
+# Frontend dependencies and build files
+frontend/node_modules/
+frontend/dist/
+
+# Backend build files
+backend/target/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+
+# Java compiled files
+*.class
+
+# IDE files
+.vscode/
+.idea/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Private keys and certificates
+*.pem
+*.key
+
+# Local configuration files
+application-local.properties
+application-prod.properties
+frontend/src/App-backup.jsx
+.github/modernize/
